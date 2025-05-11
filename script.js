@@ -34,3 +34,22 @@ document.addEventListener('keydown', function (e) {
 });
 
 // Modal window END
+
+
+// Smooth Scrolling START
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function () {
+  const s1coords = section1.getBoundingClientRect();
+
+  window.scrollTo({ 
+    top: s1coords.y + window.scrollY,
+    left: s1coords.x + window.scrollX,
+    behavior: 'smooth'
+  });
+  // section1.scrollIntoView({ behavior: 'smooth', block: 'end' });
+})
+
+// Smooth Scrolling END
