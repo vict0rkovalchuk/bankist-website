@@ -36,7 +36,7 @@ document.addEventListener('keydown', function (e) {
 // Modal window END
 
 
-// Smooth Scrolling START
+// Button Smooth Scrolling START
 
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
@@ -52,4 +52,19 @@ btnScrollTo.addEventListener('click', function () {
   // section1.scrollIntoView({ behavior: 'smooth', block: 'end' });
 })
 
-// Smooth Scrolling END
+// Button Smooth Scrolling END
+
+
+// Page Navigation Smooth Scrolling START
+
+document.querySelector('.nav__links').addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (e.target.matches('.nav__link:not(.nav__link--btn)')) {
+    const id = e.target.getAttribute('href');
+
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+})
+
+// Page Navigation Smooth Scrolling END
