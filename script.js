@@ -1,16 +1,26 @@
 'use strict';
 
-// const obsCallback = function (entries, observer) {
-//   entries.forEach(entry => {
-//     console.log(entry);
-//   })
-// }
+// Reveal Section On Scroll START
 
-// const obsOptions = {
-//   root: null,
-//   threshold: [0, 0.2]
-// };
+const sections = document.querySelectorAll('.section');
 
-// const observer = new IntersectionObserver(obsCallback, obsOptions);
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
 
-// observer.observe(document.querySelector('#section--1'));
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15
+});
+
+sections.forEach(function (section) {
+  section.classList.add('section--hidden');
+  sectionObserver.observe(section);
+});
+
+// Reveal Section On Scroll END

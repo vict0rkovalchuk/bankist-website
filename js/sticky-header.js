@@ -4,7 +4,7 @@
 
 const header = document.querySelector('.header');
 
-const observer = new IntersectionObserver(function (entries, observer) {
+const headerObserver = new IntersectionObserver(function (entries, observer) {
   const [entry] = entries;
 
     if (entry.isIntersecting) {
@@ -18,6 +18,6 @@ const observer = new IntersectionObserver(function (entries, observer) {
   threshold: 0
 });
 
-observer.observe(header);
+headerObserver.observe(header);
 
 // Sticky Header END
