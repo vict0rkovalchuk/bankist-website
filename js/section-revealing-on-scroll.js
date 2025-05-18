@@ -1,3 +1,5 @@
+'use strict';
+
 // Reveal Section On Scroll START
 
 const sections = document.querySelectorAll('.section');
